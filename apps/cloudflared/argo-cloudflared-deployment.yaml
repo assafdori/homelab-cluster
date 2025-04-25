@@ -66,6 +66,8 @@ data:
     metrics: 0.0.0.0:2000
     no-autoupdate: true
     ingress:
+    - hostname: "whoami.assafdori.com"
+      service: http://whoami.whoami.svc.cluster.local:80
     - hostname: "uptime.assafdori.com"
-      service: http://traefik.kube-system.svc.cluster.local:80
+      service: http://uptime-kuma.uptime-kuma.svc.cluster.local:80
     - service: http_status:404
