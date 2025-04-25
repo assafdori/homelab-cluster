@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: landing-page
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/assafdori/homelab-cluster.git
+    targetRevision: HEAD
+    path: apps/manifests/landing-page
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: landing-page
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true 
