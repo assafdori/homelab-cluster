@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homelab-cluster-app
+  name: homelab-cluster-root
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/assafdori/homelab-cluster.git
     targetRevision: HEAD
-    path: apps/root-application.yaml
+    path: apps/applications
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -24,4 +24,4 @@ spec:
       backoff:
         duration: 5s
         factor: 2
-        maxDuration: 3m
+        maxDuration: 3m 

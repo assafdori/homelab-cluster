@@ -1,27 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homelab-cluster-app
+  name: whoami
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/assafdori/homelab-cluster.git
     targetRevision: HEAD
-    path: apps/root-application.yaml
+    path: apps/manifests/whoami
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: whoami
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - PruneLast=true
-    retry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
+      selfHeal: true 
