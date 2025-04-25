@@ -1,0 +1,3 @@
+---
+resources:
+  - argo-whoami-deployment.yaml
