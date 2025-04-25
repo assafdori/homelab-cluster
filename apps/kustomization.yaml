@@ -6,4 +6,5 @@ resources:
   - linkding/
   - uptime-kuma/
   - whoami/
+  - cloudflared/
 
