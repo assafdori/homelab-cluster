@@ -4,6 +4,22 @@ kind: Namespace
 metadata:
   name: linkding
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: linkding
+  namespace: linkding
+  labels:
+    app: linkding
+spec:
+  selector:
+    app: linkding
+  ports:
+    - name: http
+      port: 80
+      targetPort: 9090
+      protocol: TCP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
