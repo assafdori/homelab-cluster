@@ -8,137 +8,209 @@ data:
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Assaf Dori - Homelab Services</title>
-        <style>
-            :root {
-                --primary-color: #2563eb;
-                --secondary-color: #1e40af;
-                --background-color: #f8fafc;
-                --text-color: #1e293b;
-            }
-            
-            body {
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: var(--background-color);
-                color: var(--text-color);
-                line-height: 1.6;
-            }
-            
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 2rem;
-            }
-            
-            header {
-                text-align: center;
-                margin-bottom: 3rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-                margin-bottom: 0.5rem;
-                color: var(--primary-color);
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-                color: #64748b;
-            }
-            
-            .services {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .service-card {
-                background: white;
-                border-radius: 0.5rem;
-                padding: 1.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                transition: transform 0.2s;
-            }
-            
-            .service-card:hover {
-                transform: translateY(-2px);
-            }
-            
-            .service-card h2 {
-                margin-top: 0;
-                color: var(--primary-color);
-            }
-            
-            .service-card a {
-                display: inline-block;
-                margin-top: 1rem;
-                padding: 0.5rem 1rem;
-                background-color: var(--primary-color);
-                color: white;
-                text-decoration: none;
-                border-radius: 0.25rem;
-                transition: background-color 0.2s;
-            }
-            
-            .service-card a:hover {
-                background-color: var(--secondary-color);
-            }
-            
-            footer {
-                text-align: center;
-                margin-top: 3rem;
-                padding-top: 2rem;
-                border-top: 1px solid #e2e8f0;
-                color: #64748b;
-            }
-            
-            @media (max-width: 640px) {
-                .container {
-                    padding: 1rem;
-                }
-                
-                h1 {
-                    font-size: 2rem;
-                }
-            }
-        </style>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        :root {
+          --primary-color: #2563eb;
+          --secondary-color: #1e40af;
+          --background-light: #f1f5f9;
+          --background-dark: #e2e8f0;
+          --text-color: #1e293b;
+          --muted-text: #64748b;
+          --card-shadow: 0 8px 12px rgba(0,0,0,0.06);
+          --hover-shadow: 0 10px 18px rgba(0,0,0,0.08);
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background: linear-gradient(to bottom right, var(--background-light), var(--background-dark));
+          color: var(--text-color);
+          line-height: 1.6;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+
+        header.topbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem 2rem;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+
+        .brand {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary-color);
+          text-decoration: none;
+        }
+
+        .social-links {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .social-links a {
+          color: var(--text-color);
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover {
+          color: var(--primary-color);
+          transform: scale(1.05);
+        }
+
+        main.container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 2rem;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero {
+          margin-top: 5rem;
+          max-width: 700px;
+          font-size: 1.4rem;
+          color: var(--muted-text);
+          line-height: 1.8;
+        }
+
+        .features {
+          margin-top: 6rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 3rem;
+          width: 100%;
+        }
+
+        .feature {
+          padding: 1.5rem;
+          background: white;
+          border-radius: 1rem;
+          box-shadow: var(--card-shadow);
+          transition: transform 0.3s, box-shadow 0.3s;
+          text-align: left;
+        }
+
+        .feature:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--hover-shadow);
+        }
+
+        .feature h3 {
+          font-size: 1.3rem;
+          color: var(--primary-color);
+          margin-bottom: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .feature p {
+          font-size: 1rem;
+          color: var(--muted-text);
+          margin-bottom: 1rem;
+        }
+
+        .feature a {
+          font-size: 0.95rem;
+          color: var(--primary-color);
+          text-decoration: none;
+          font-weight: 500;
+        }
+
+        footer {
+          text-align: center;
+          margin: 4rem 2rem 1rem 2rem;
+          padding-top: 2rem;
+          border-top: 1px solid #d1d5db;
+          font-size: 0.9rem;
+          color: var(--muted-text);
+        }
+
+        @media (max-width: 768px) {
+          header.topbar {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+          }
+
+          main.container {
+            padding: 1.5rem;
+          }
+
+          .features {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --background-light: #0f172a;
+            --background-dark: #1e293b;
+            --text-color: #f1f5f9;
+            --muted-text: #cbd5e1;
+            --card-shadow: 0 8px 12px rgba(255,255,255,0.05);
+            --hover-shadow: 0 10px 18px rgba(255,255,255,0.08);
+          }
+
+          body {
+            background: linear-gradient(to bottom right, var(--background-light), var(--background-dark));
+          }
+
+          .feature {
+            background: #1e293b;
+            border: 1px solid #334155;
+          }
+        }
+      </style>
     </head>
     <body>
-        <div class="container">
-            <header>
-                <h1>Assaf Dori</h1>
-                <p class="subtitle">Homelab Services</p>
-            </header>
-            
-            <div class="services">
-                <div class="service-card">
-                    <h2>Uptime Monitor</h2>
-                    <p>Monitor the status of all my services and get instant notifications when something goes down.</p>
-                    <a href="https://uptime.assafdori.com">Visit Uptime-Kuma</a>
-                </div>
-                
-                <div class="service-card">
-                    <h2>Bookmark Manager</h2>
-                    <p>My personal bookmark manager for saving and organizing interesting links and resources.</p>
-                    <a href="https://linkding.assafdori.com">Visit Linkding</a>
-                </div>
-                
-                <div class="service-card">
-                    <h2>Whoami Service</h2>
-                    <p>A simple service for testing and debugging purposes.</p>
-                    <a href="https://whoami.assafdori.com">Visit Whoami</a>
-                </div>
-            </div>
-            
-            <footer>
-                <p>Powered by Kubernetes.</p>
-                <p>© 2025 Assaf Dori</p>
-            </footer>
+      <header class="topbar">
+        <a class="brand" href="/">Assaf Dori</a>
+        <div class="social-links">
+          <a href="https://github.com/assafdori" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/assafdori" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:hi@assafdori.com">Email</a>
         </div>
+      </header>
+
+      <main class="container">
+
+        <section class="features">
+          <div class="feature">
+            <h3>📈 Uptime Monitor</h3>
+            <p>Monitor service uptime and get real-time reports. Powered by Uptime-Kuma.</p>
+            <a href="https://uptime.assafdori.com">Visit Uptime-Kuma →</a>
+          </div>
+
+          <div class="feature">
+            <h3>🔖 Bookmark Manager</h3>
+            <p>Organize and manage personal knowledge efficiently. Powered by Linkding.</p>
+            <a href="https://linkding.assafdori.com">Visit Linkding →</a>
+          </div>
+
+          <div class="feature">
+            <h3>🌐 Whoami Service</h3>
+            <p>Connectivity testing tool for DNS, IP, and deployments troubleshooting.</p>
+            <a href="https://whoami.assafdori.com">Visit Whoami →</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Powered by Kubernetes | © 2025 Assaf Dori
+      </footer>
     </body>
-    </html> 
+    </html>
