@@ -70,4 +70,6 @@ data:
       service: http://whoami.whoami.svc.cluster.local:80
     - hostname: "uptime.assafdori.com"
       service: http://uptime-kuma.uptime-kuma.svc.cluster.local:80
+    - hostname: "linkding.assafdori.com"
+      service: http://linkding.linkding.svc.cluster.local:80
     - service: http_status:404
