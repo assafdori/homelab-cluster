@@ -1,0 +1,3 @@
+---
+resources:
+  - argo-linkding-deployment.yaml
