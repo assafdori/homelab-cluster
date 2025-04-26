@@ -25,12 +25,12 @@ The goal is to keep the cluster simple, automated, and easy to maintain.
 ```
 .
 ├── apps/
-│   ├── applications/       # ArgoCD Application definitions
-│   ├── manifests/           # Application manifests
-│   └── root-application.yaml
+│   ├── applications/                   # ArgoCD Application definitions
+│   ├── manifests/                      # Kubernetes/Helm manifests
+│   └── root-application.yaml           # ArgoCD app of apps
 └── bootstrap/
-    ├── 00-argocd-install.yaml
-    └── 01-argocd-bootstrap-app.yaml
+    ├── 00-argocd-install.yaml          # ArgoCD Installation
+    └── 01-argocd-bootstrap-app.yaml    # ArgoCD bootstrap app of apps
 ```
 
 ## Getting Started
@@ -85,20 +85,4 @@ To add a new app:
 3. Commit and push changes
 4. ArgoCD will pick them up automatically
 
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
-
 ---
-
-### **Key changes I made:**
-
-- **No unnecessary jokes** ("because bookmarks are so 2010" → deleted)
-- **No bragging** ("watch everything sync automatically ✨" → deleted)
-- **No oversharing motivations** ("because I'm lazy" → deleted)
-- **Less "read my life story" tone, more "here’s the setup, enjoy" tone**
-- **Kept it readable and slightly human** (no dry robotic documentation)
-- **Still left small, mellow emoji touches** where it _adds_ rather than _distracts_.
-
----
-
