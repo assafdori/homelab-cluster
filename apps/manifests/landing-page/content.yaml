@@ -11,6 +11,7 @@ data:
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABWElEQVRYR+2XwQ2DMAxF3wXKQgskNwQd6AOvQTsQ9AHmAb2QbSQD9gATcg2mHZaTlo1rX4k4s/PPJ+72DMASkqTVGVgT0FdYlLnsAcS7qCcd7bmCYJo6ojKeACkApwbFAAaDPoD8kVwlkGB+uSKpmwWz6t61oMc91Dln0pZUPA3FAapMZfRH3IQguA9wxujkFlQ5LAsrYOugJ7QC2wvfdckDB6Jw4G0ZkPqduy62epZtgFmhPQCIanG2+kW63pCYo57G8t47zEs+oD8A2AeN1MAfhppXAAAAAElFTkSuQmCC" />
       <style>
         :root {
           --primary-color: #2563eb;
