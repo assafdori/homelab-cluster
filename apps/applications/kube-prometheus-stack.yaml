@@ -21,6 +21,7 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
 ---
+# FIXME: Scraping target fails with 401 Unauthorized
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
