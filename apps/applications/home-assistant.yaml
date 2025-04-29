@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: home-assistant
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: http://pajikos.github.io/home-assistant-helm-chart/
+    chart: home-assistant
+    targetRevision: 0.2.119
+    helm:
+      values: |
+        replicaCount: 1
+        hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet
+        persistence:
+          enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: home-assistant
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
